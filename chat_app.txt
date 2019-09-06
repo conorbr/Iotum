@@ -1,0 +1,19 @@
+To create a web based chat application I would start with rails,
+I would throw up a rails application with devise to handle the
+use authentication. I would create the home and chatroom controllers
+a user will have many chatrooms subsequently a chatroom will have
+many users and be able to invite users registered in the application
+to join the chatroom.
+
+the invitations would be sent out the users using ActionMailer to send out
+invites to join the chatroom. I would create a token controller to handle
+unique invite tokens. To handle the messenger I would use web sockets ActionCable
+and ajax calls to allow for real time messages to be sent. Each message
+would be stored in the messages model with a timestamp, user_id, and chatroom_id
+
+as far as hosting AWS would work well with scaling in mind making use of the load
+balancer. Building on this a mobile application would complement this application
+using react-native would make it possible to quickly establish a mobile app.
+This would require a different form of authentication as devise uses CSRF tokens
+and API applications wouldn't make good use of session tokens. JSON web tokens
+would be a good route to take for authentication from outside applications.
